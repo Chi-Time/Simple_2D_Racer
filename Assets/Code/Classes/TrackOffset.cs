@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Renderer))]
+[RequireComponent (typeof(Renderer))]
 public class TrackOffset : MonoBehaviour
 {
     [Tooltip("The speed for the track to move at, giving the appearance of motion.")]
