@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour
     private void GetInput ()
     {
         var dir = new Vector3 (
-            Input.GetAxis ("Horizontal"), 
-            0.0f, 
+            Input.GetAxis ("Horizontal"),
+            0.0f,
             0.0f
         );
 
