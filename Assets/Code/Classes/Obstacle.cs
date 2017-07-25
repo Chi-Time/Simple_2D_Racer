@@ -7,6 +7,7 @@ public class Obstacle : MonoBehaviour
     [Tooltip("The speed at which the obstacle moves down the screen.")]
     [SerializeField] private float _Speed = 0.0f;
     [Tooltip("The distance before the object is culled from play.")]
+    [Range(-5.0f, -25.0f)]
     [SerializeField] private float _CullingRange = 0.0f;
 
     /// Reference to the object's rigidbody component.
