@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [Tooltip("The speed of the player's left and right movement.")]
     [SerializeField] private float _Speed = 5f;
+    [Tooltip("The value at which the player cannot move past horizontally")]
+    [SerializeField] private float _XMin = 0.0f, _XMax = 0.0f;
 
     /// The player's direction with speed.
     private Vector3 _Velocity = Vector3.zero;
@@ -44,7 +46,11 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput ()
     {
-        var dir = new Vector3 (Input.GetAxis ("Horizontal"), 0.0f, 0.0f);
+        var dir = new Vector3 (
+            Input.GetAxis ("Horizontal"), 
+            0.0f, 
+            0.0f
+        );
 
         _Velocity = dir * _Speed;
     }
@@ -57,6 +63,12 @@ public class PlayerController : MonoBehaviour
     private void Move ()
     {
         _Rigidbody2D.velocity = _Velocity * Time.fixedDeltaTime;
+
+        _Rigidbody2D.position = new Vector3 (
+            Mathf.Clamp (_Rigidbody2D.position.x, _XMin, _XMax),
+            0.0f,
+            0.0f
+        );
     }
 
     private void Die ()
