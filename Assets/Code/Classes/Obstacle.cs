@@ -46,7 +46,7 @@ public class Obstacle : MonoBehaviour
 
     private void CheckPosition ()
     {
-        if (_Transform.position <= _CullingRange)
+        if (_Transform.position.y <= _CullingRange)
             Cull ();
     }
 
